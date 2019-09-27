@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Main3Activity">
+    <TextView
+        android:layout_width="match_parent"
+        android:text="正确归因,内方外圆"
+        android:textColor="#fffefe"
+        android:gravity="center"
+        android:textSize="35dp"
+        android:background="@color/colorPrimary"
+        android:layout_height="wrap_content" />
+    <WebView
+        android:layout_width="match_parent"
+        android:id="@+id/web_view"
+        android:layout_height="match_parent"></WebView>
+
+</LinearLayout>

@@ -1,0 +1,59 @@
+package com.bw.mawenlong20190915;
+
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+import com.bw.adapter.MyFragmentAdapter;
+import com.bw.base.BastActivity;
+import com.bw.fragment.CangFrafment;
+import com.bw.fragment.FirstFrafment;
+import com.bw.fragment.MyFrafment;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends BastActivity {
+
+    private ViewPager view_pager;
+    private TabLayout tab_layout;
+    private List<String> tList = new ArrayList<>();
+    private List<Fragment> fList = new ArrayList<>();
+    private MyFragmentAdapter adapter;
+
+    @Override
+    protected void initData() {
+        initTab();
+        initFragment();
+        //创建适配器
+        adapter = new MyFragmentAdapter(getSupportFragmentManager(), tList, fList);
+        view_pager.setAdapter(adapter);
+        //关联
+        tab_layout.setupWithViewPager(view_pager);
+    }
+
+    private void initFragment() {
+        fList.add(new FirstFrafment());
+        fList.add(new CangFrafment());
+        fList.add(new MyFrafment());
+    }
+
+    private void initTab() {
+        tList.add("首页");
+        tList.add("收藏");
+        tList.add("我的");
+    }
+
+    @Override
+    protected void initView() {
+        view_pager = findViewById(R.id.view_pager);
+        tab_layout = findViewById(R.id.tab_layout);
+    }
+
+    @Override
+    protected int initLayout() {
+        return R.layout.activity_main;
+    }
+}
